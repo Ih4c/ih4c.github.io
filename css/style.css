@@ -1,0 +1,36 @@
+body {
+    background-color: #000;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.5;
+  }
+  
+  .terminal {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .command, .input-area {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-area input {
+    background: transparent;
+    border: none;
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    flex-grow: 1;
+    outline: none;
+  }
+  
+  .cursor {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
