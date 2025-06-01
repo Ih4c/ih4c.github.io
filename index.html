@@ -8,13 +8,22 @@
 </head>
 <body>
   <div class="terminal">
-    <div class="command">user@ih4c:~$ <span class="typed-text"></span><span class="cursor">|</span></div>
-    <div class="output">
-      <p>Welcome to Nate_sec cybersecurity portfolio.</p>
-      <p>Type <strong>"help"</strong> for commands.</p>
+    <!-- Hacking Animation -->
+    <div class="hack-animation">
+      <div class="scanline"></div>
+      <div class="glitch-text">root@nate_sec:~# <span id="hack-code"></span><span class="cursor">|</span></div>
     </div>
+
+    <!-- Terminal Output -->
+    <div class="output">
+      <p class="glow">Welcome to Nate_Sec's cybersecurity portfolio.</p>
+      <p>Type <strong>"help"</strong> for commands or <strong>"start"</strong> for demo.</p>
+      <div id="matrix-effect"></div>
+    </div>
+
+    <!-- Input Area -->
     <div class="input-area">
-      <span>user@ih4c:~$ </span>
+      <span>user@nate_sec:~$ </span>
       <input type="text" id="command-input" autofocus>
     </div>
   </div>

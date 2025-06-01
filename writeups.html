@@ -1,28 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Writeups | Ih4c</title>
+  <title>Writeups | Nate_Sec</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Additional writeup-specific styles */
+    .writeup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+    
+    .writeup-card {
+      background: rgba(0, 15, 0, 0.3);
+      border: 1px solid #00FF00;
+      border-radius: 5px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .writeup-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 255, 0, 0.1) 0%,
+        rgba(0, 255, 0, 0) 20%,
+        rgba(0, 255, 0, 0) 80%,
+        rgba(0, 255, 0, 0.1) 100%
+      );
+      pointer-events: none;
+    }
+    
+    .writeup-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2);
+      border-color: #00FF88;
+    }
+    
+    .writeup-card h3 {
+      color: #00FF00;
+      margin-top: 0;
+      border-bottom: 1px solid #00FF44;
+      padding-bottom: 10px;
+    }
+    
+    .writeup-card a {
+      color: #00FFAA;
+      text-decoration: none;
+    }
+    
+    .writeup-card a:hover {
+      text-decoration: underline;
+    }
+    
+    .difficulty {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 0.8em;
+      font-weight: bold;
+    }
+    
+    .difficulty-easy {
+      background: rgba(0, 255, 0, 0.2);
+      color: #00FF00;
+    }
+    
+    .tags {
+      font-size: 0.9em;
+      color: #00FF88;
+      margin-top: 10px;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 8px 15px;
+      border: 1px solid #00FF00;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background: rgba(0, 255, 0, 0.1);
+    }
+  </style>
 </head>
 <body>
   <div class="terminal">
     <div class="output">
-      <h1>CTF Writeups</h1>
+      <h1 class="glow">CTF Writeups</h1>
+      <p class="subtitle">Compromised systems and lessons learned</p>
       
-      <h2>TryHackMe</h2>
-      <div class="writeup">
-        <h3><a href="writeups/thm-simple.html">Simple</a></h3>
-        <p>Difficulty: Easy | Tags: Web, Privilege Escalation</p>
+      <div class="writeup-grid">
+        <!-- TryHackMe Section -->
+        <div class="section-header">
+          <h2><span class="brand-icon">THM</span> TryHackMe</h2>
+        </div>
+        
+        <div class="writeup-card" onclick="window.location='writeups/thm-simple.html'">
+          <h3><a href="writeups/thm-simple.html">Simple</a></h3>
+          <div class="difficulty difficulty-easy">EASY</div>
+          <div class="tags">
+            <strong>Tags:</strong> Web, Privilege Escalation
+          </div>
+          <div class="date">Solved: 15 Jan 2023</div>
+        </div>
+        
+        <!-- HackTheBox Section -->
+        <div class="section-header">
+          <h2><span class="brand-icon">HTB</span> HackTheBox</h2>
+        </div>
+        
+        <div class="writeup-card" onclick="window.location='writeups/htb-bashed.html'">
+          <h3><a href="writeups/htb-bashed.html">Bashed</a></h3>
+          <div class="difficulty difficulty-easy">EASY</div>
+          <div class="tags">
+            <strong>Tags:</strong> OS Command Injection
+          </div>
+          <div class="date">Solved: 22 Feb 2023</div>
+        </div>
       </div>
-
-      <h2>HackTheBox</h2>
-      <div class="writeup">
-        <h3><a href="writeups/htb-bashed.html">Bashed</a></h3>
-        <p>Difficulty: Easy | Tags: OS Command Injection</p>
-      </div>
-
-      <p><a href="index.html">← Back to Terminal</a></p>
+      
+      <a href="index.html" class="back-link">← Back to Terminal</a>
     </div>
   </div>
+  
+  <script>
+    // Add subtle animation to cards on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.writeup-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100);
+      });
+    });
+  </script>
 </body>
 </html>

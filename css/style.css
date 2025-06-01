@@ -5,16 +5,51 @@ body {
     margin: 0;
     padding: 20px;
     line-height: 1.5;
+    overflow-x: hidden;
   }
   
   .terminal {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
   }
   
+  /* Hacking Animation */
+  .hack-animation {
+    position: relative;
+    overflow: hidden;
+    padding: 12px;
+    margin-bottom: 20px;
+    background: #000;
+    border: 1px solid #00FF00;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+  }
+  
+  .scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to bottom, 
+                transparent 0%, 
+                #00FF00 50%, 
+                transparent 100%);
+    animation: scan 4s linear infinite;
+  }
+  
+  .glitch-text {
+    color: #00FF00;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px #00FF00;
+  }
+  
+  /* Terminal Elements */
   .command, .input-area {
     display: flex;
     align-items: center;
+    margin: 10px 0;
   }
   
   .input-area input {
@@ -24,13 +59,99 @@ body {
     font-family: 'Courier New', monospace;
     flex-grow: 1;
     outline: none;
+    padding: 5px;
+    font-size: 16px;
   }
   
-  .cursor {
-    animation: blink 1s infinite;
+  .output {
+    margin: 15px 0;
   }
   
+  .glow {
+    text-shadow: 0 0 8px #00FF00;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  /* Animations */
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+  
+  @keyframes scan {
+    0% { top: -10px; opacity: 0.8; }
+    100% { top: 100%; opacity: 0.2; }
+  }
+  
+  @keyframes pulse {
+    0% { text-shadow: 0 0 5px #00FF00; }
+    100% { text-shadow: 0 0 15px #00FF00, 0 0 20px #00FF00; }
+  }
+  
+  /* Writeup Cards (for writeups.html) */
+  .writeup-card {
+    background: rgba(0, 20, 0, 0.3);
+    border: 1px solid #00FF00;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .writeup-card:hover {
+    background: rgba(0, 30, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  }
+  
+  .writeup-card h3 {
+    margin: 0 0 10px 0;
+    color: #00FF00;
+  }
+  
+  .difficulty-easy {
+    color: #00FF00;
+    font-weight: bold;
+  }
+  
+  /* Matrix Effect Container */
+  #matrix-effect {
+    width: 100%;
+    height: 200px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .command-line {
+    margin: 5px 0;
+    color: #00FF00;
+  }
+  
+  .prompt {
+    color: #00FF88;
+    font-weight: bold;
+  }
+  
+  .error {
+    color: #FF5555;
+  }
+  
+  .hack-demo {
+    margin: 15px 0;
+    border-left: 2px solid #00FF00;
+    padding-left: 10px;
+  }
+  
+  .hack-line {
+    margin: 8px 0;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .hack-prompt {
+    color: #FF5555;
+    font-weight: bold;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
