@@ -50,16 +50,33 @@ window.addEventListener('resize', () => {
 
 setInterval(draw, 30);
 
-// Typing effect
+// Matrix Rain Effect (Keep your existing code)
+// ...
+
+// Typing Effect Fix
 const phrases = ["cybersecurity enthusiast", "penetration tester", "CTF player"];
 let i = 0, j = 0, currentPhrase = [];
+let isDeleting = false;
 
 function type() {
-  if (j < phrases[i].length) {
-    currentPhrase.push(phrases[i][j]);
-    document.getElementById("typed-text").innerHTML = currentPhrase.join("");
-    j++;
-    setTimeout(type, 100);
+  const typedTextElement = document.getElementById("typed-text");
+  
+  if (i < phrases.length) {
+    if (!isDeleting && j <= phrases[i].length) {
+      currentPhrase = phrases[i].substring(0, j);
+      typedTextElement.innerHTML = currentPhrase;
+      j++;
+      setTimeout(type, 100);
+    } else if (isDeleting && j >= 0) {
+      currentPhrase = phrases[i].substring(0, j);
+      typedTextElement.innerHTML = currentPhrase;
+      j--;
+      setTimeout(type, 50);
+    } else {
+      isDeleting = !isDeleting;
+      if (!isDeleting) i = (i + 1) % phrases.length;
+      setTimeout(type, 1000);
+    }
   }
 }
 

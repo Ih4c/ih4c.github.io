@@ -4,9 +4,10 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #000 !important; /* Force black background */
+  background-color: #000 !important;
   overflow: hidden;
   font-family: 'Courier New', monospace;
+  color: #00FF00;
 }
 
 /* Matrix Rain Background */
@@ -25,14 +26,27 @@ body, html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Perfect center */
+  transform: translate(-50%, -50%);
   width: 90%;
   max-width: 800px;
-  color: #00FF00;
   z-index: 2;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
-  border: 1px solid #00FF00;
+}
+
+/* Terminal Header (Prompt Line) */
+.terminal-header {
+  white-space: nowrap; /* Prevent line breaks */
+  margin-bottom: 10px;
+}
+
+.prompt {
+  color: #00FF00;
+  font-weight: bold;
+}
+
+/* Content Text */
+.content {
+  line-height: 1.5;
 }
 
 /* Cursor Animation */
@@ -43,12 +57,4 @@ body, html {
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .terminal {
-    width: 95%;
-    padding: 15px;
-  }
 }
