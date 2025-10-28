@@ -16,7 +16,7 @@ timezone: Africa/Accra
 
 title: Ih4c # the main title
 
-tagline:  # it will display as the subtitle
+tagline: Purple Team | CTF's | 1x AWS | Research # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Personal blog and projects by Ih4c — documenting exploits, writeups, and cybersecurity research.
