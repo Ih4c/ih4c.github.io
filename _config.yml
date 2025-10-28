@@ -16,7 +16,7 @@ timezone: Africa/Accra
 
 title: Ih4c # the main title
 
-tagline: Purple Team | CTF's | 1x AWS | Research # it will display as the subtitle
+tagline: Purple Team | CTF's | 1x AWS certified| Research # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Personal blog and projects by Ih4c — documenting exploits, writeups, and cybersecurity research.
@@ -98,7 +98,7 @@ theme_mode: dark # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: /assets/img/
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
